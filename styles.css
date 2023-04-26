@@ -1,0 +1,84 @@
+body {
+  background-color: #011529;
+  display: grid;
+  height: 100vh;
+  place-content: center;
+  width: 100vw;
+  overflow: hidden;
+  margin: 0;
+}
+
+svg {
+  width: 90vw;
+  height: 70vh;
+  display: block;
+}
+
+.outside,
+.inside {
+  fill: none;
+}
+
+.outside {
+  stroke-width: inherit;
+  stroke: #99c6c7;
+  stroke-opacity: 0.3;
+}
+
+.inside {
+  stroke: #3DBABA;
+  animation: loop 3s linear infinite;
+  stroke-width: 0.35;
+  stroke-dasharray: 3 24.5;
+  stroke-linecap: round;
+  animation-delay: -1.5s;
+}
+
+.infinity {
+  stroke-width: 1.43;
+  animation: rot 36s linear infinite;
+}
+
+.shadow {
+  animation: raise 3s linear infinite;
+}
+
+.shadow.odd {
+  animation-delay: -1.5s;
+}
+
+@keyframes raise {
+  0%, 20% {
+    opacity: 1;
+  }
+
+  30%, 70% {
+    opacity: 0;
+  }
+
+  80%, 100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loop {
+  0% {
+    stroke-dashoffset: 0.5;
+  }
+
+  100% {
+    stroke-dashoffset: 28;
+  }
+}
+
+.clip-shadow {
+  stroke-linecap: butt;
+  fill: none;
+  opacity: 0.3;
+  stroke-width: inherit;
+  stroke: url(#rgradient);
+}
+
+#rgradient stop {
+  stop-color: #2345;
+}
